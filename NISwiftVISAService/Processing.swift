@@ -20,6 +20,12 @@ extension Message {
 		case .viOpenDefaultRMMessage(var message):
 			let status = viOpenDefaultRM(&message.vi)
 			return Message.viOpenDefaultRMMessage(message).returnMessage(withStatus: status)
+		case .viReadMessage(var message):
+			let status = viRead(message.vi, &message.buffer, message.count, &message.returnCount)
+			return Message.viReadMessage(message).returnMessage(withStatus: status)
+		case .viWriteMessage(var message):
+			let status = viWrite(message.vi, &message.buffer, message.count, &message.returnCount)
+			return Message.viWriteMessage(message).returnMessage(withStatus: status)
 		}
 	}
 }
