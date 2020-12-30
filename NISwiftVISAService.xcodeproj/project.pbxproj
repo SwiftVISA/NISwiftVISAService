@@ -3,11 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		5A8EA498259C24B100BE521B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8EA497259C24B100BE521B /* main.swift */; };
+		5A8EA4A1259C24CE00BE521B /* NISwiftVISAServiceMessages in Frameworks */ = {isa = PBXBuildFile; productRef = 5A8EA4A0259C24CE00BE521B /* NISwiftVISAServiceMessages */; };
+		5A8EA4A6259C253A00BE521B /* Processing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8EA4A5259C253A00BE521B /* Processing.swift */; };
+		5A8EA4A7259C253A00BE521B /* MessageListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8EA4A4259C253A00BE521B /* MessageListener.swift */; };
+		5A8EA4BC259C305700BE521B /* VISA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A8EA4BB259C305700BE521B /* VISA.framework */; };
+		5A8EA4BD259C305700BE521B /* VISA.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5A8EA4BB259C305700BE521B /* VISA.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -20,11 +25,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		5A8EA4BE259C305700BE521B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5A8EA4BD259C305700BE521B /* VISA.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5A8EA494259C24B100BE521B /* NISwiftVISAService */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = NISwiftVISAService; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A8EA497259C24B100BE521B /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		5A8EA4A4259C253A00BE521B /* MessageListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListener.swift; sourceTree = "<group>"; };
+		5A8EA4A5259C253A00BE521B /* Processing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Processing.swift; sourceTree = "<group>"; };
+		5A8EA4AA259C274600BE521B /* NISwiftVISAService-BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NISwiftVISAService-BridgingHeader.h"; sourceTree = "<group>"; };
+		5A8EA4BB259C305700BE521B /* VISA.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VISA.framework; path = ../../../../../../../../Library/Frameworks/VISA.framework; sourceTree = "<group>"; };
+		5A8EA4BF259C3F3400BE521B /* NISwiftVISAService.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NISwiftVISAService.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +53,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A8EA4A1259C24CE00BE521B /* NISwiftVISAServiceMessages in Frameworks */,
+				5A8EA4BC259C305700BE521B /* VISA.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +66,7 @@
 			children = (
 				5A8EA496259C24B100BE521B /* NISwiftVISAService */,
 				5A8EA495259C24B100BE521B /* Products */,
+				5A8EA4BA259C305700BE521B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,9 +81,21 @@
 		5A8EA496259C24B100BE521B /* NISwiftVISAService */ = {
 			isa = PBXGroup;
 			children = (
+				5A8EA4BF259C3F3400BE521B /* NISwiftVISAService.entitlements */,
+				5A8EA4AA259C274600BE521B /* NISwiftVISAService-BridgingHeader.h */,
 				5A8EA497259C24B100BE521B /* main.swift */,
+				5A8EA4A4259C253A00BE521B /* MessageListener.swift */,
+				5A8EA4A5259C253A00BE521B /* Processing.swift */,
 			);
 			path = NISwiftVISAService;
+			sourceTree = "<group>";
+		};
+		5A8EA4BA259C305700BE521B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5A8EA4BB259C305700BE521B /* VISA.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -72,12 +108,16 @@
 				5A8EA490259C24B100BE521B /* Sources */,
 				5A8EA491259C24B100BE521B /* Frameworks */,
 				5A8EA492259C24B100BE521B /* CopyFiles */,
+				5A8EA4BE259C305700BE521B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = NISwiftVISAService;
+			packageProductDependencies = (
+				5A8EA4A0259C24CE00BE521B /* NISwiftVISAServiceMessages */,
+			);
 			productName = NISwiftVISAService;
 			productReference = 5A8EA494259C24B100BE521B /* NISwiftVISAService */;
 			productType = "com.apple.product-type.tool";
@@ -105,6 +145,9 @@
 				Base,
 			);
 			mainGroup = 5A8EA48B259C24B100BE521B;
+			packageReferences = (
+				5A8EA49F259C24CE00BE521B /* XCRemoteSwiftPackageReference "NISwiftVISAServiceMessages" */,
+			);
 			productRefGroup = 5A8EA495259C24B100BE521B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -119,6 +162,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A8EA4A6259C253A00BE521B /* Processing.swift in Sources */,
+				5A8EA4A7259C253A00BE521B /* MessageListener.swift in Sources */,
 				5A8EA498259C24B100BE521B /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,10 +289,20 @@
 		5A8EA49C259C24B100BE521B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = x86_64;
+				CODE_SIGN_ENTITLEMENTS = NISwiftVISAService/NISwiftVISAService.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3ER597LK99;
 				ENABLE_HARDENED_RUNTIME = YES;
+				EXCLUDED_ARCHS = arm64;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				LD_VERIFY_BITCODE = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swiftvisa.NISwiftVISAService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/NISwiftVISAService/NISwiftVISAService-BridgingHeader.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -255,10 +310,20 @@
 		5A8EA49D259C24B100BE521B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = x86_64;
+				CODE_SIGN_ENTITLEMENTS = NISwiftVISAService/NISwiftVISAService.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3ER597LK99;
 				ENABLE_HARDENED_RUNTIME = YES;
+				EXCLUDED_ARCHS = arm64;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				LD_VERIFY_BITCODE = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swiftvisa.NISwiftVISAService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/NISwiftVISAService/NISwiftVISAService-BridgingHeader.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -285,6 +350,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5A8EA49F259C24CE00BE521B /* XCRemoteSwiftPackageReference "NISwiftVISAServiceMessages" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftVISA/NISwiftVISAServiceMessages.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5A8EA4A0259C24CE00BE521B /* NISwiftVISAServiceMessages */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5A8EA49F259C24CE00BE521B /* XCRemoteSwiftPackageReference "NISwiftVISAServiceMessages" */;
+			productName = NISwiftVISAServiceMessages;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5A8EA48C259C24B100BE521B /* Project object */;
 }
