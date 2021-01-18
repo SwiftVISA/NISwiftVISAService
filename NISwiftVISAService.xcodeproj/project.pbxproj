@@ -300,6 +300,7 @@
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
 				);
 				LD_VERIFY_BITCODE = NO;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.swiftvisa.NISwiftVISAService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/NISwiftVISAService/NISwiftVISAService-BridgingHeader.h";
@@ -321,6 +322,7 @@
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
 				);
 				LD_VERIFY_BITCODE = NO;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.swiftvisa.NISwiftVISAService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/NISwiftVISAService/NISwiftVISAService-BridgingHeader.h";
