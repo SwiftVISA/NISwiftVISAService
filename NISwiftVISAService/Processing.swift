@@ -8,6 +8,7 @@
 import Foundation
 import NISwiftVISAServiceMessages
 
+/// A class that processes received messages.
 @objc(MessageProcessor) class MessageProcessor: NSObject, VISAXPCProtocol {
 	func close(
 		vi: ViSession,
