@@ -9,7 +9,7 @@ import Foundation
 import NISwiftVISAServiceMessages
 
 /// A class that is responsible for listening to messages from other applications.
-class XPCMessageListener {
+@objc(XPCMessageListener) class XPCMessageListener: NSObject {
 	/// The name of the mach service.
 	static let machName = "com.swiftvisa.NISwiftVISAService"
 	/// Listens for messages from other applications.
@@ -29,7 +29,7 @@ class XPCMessageListener {
 		_ listener: NSXPCListener,
 		shouldAcceptNewConnection newConnection: NSXPCConnection
 	) -> Bool {
-		let exportedObject = XPCMessageListener()
+		let exportedObject = MessageProcessor()
 		newConnection.exportedInterface = NSXPCInterface(with: VISAXPCProtocol.self)
 		newConnection.exportedObject = exportedObject
 		newConnection.resume()
