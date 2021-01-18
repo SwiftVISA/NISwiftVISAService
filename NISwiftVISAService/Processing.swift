@@ -5,28 +5,57 @@
 //  Created by Connor Barnes on 12/29/20.
 //
 
+import Foundation
 import NISwiftVISAServiceMessages
 
-
-extension Message {
-	func process() -> ReturnMessage {
-		switch self {
-		case .viOpenMessage(var message):
-			let status = viOpen(message.session, message.resourceName, message.mode, message.timeout, &message.vi)
-			return Message.viOpenMessage(message).returnMessage(withStatus: status)
-		case .viCloseMessage(let message):
-			let status = viClose(message.vi)
-			return Message.viCloseMessage(message).returnMessage(withStatus: status)
-		case .viOpenDefaultRMMessage(var message):
-			let status = viOpenDefaultRM(&message.vi)
-			return Message.viOpenDefaultRMMessage(message).returnMessage(withStatus: status)
-		case .viReadMessage(var message):
-			let status = viRead(message.vi, &message.buffer, message.count, &message.returnCount)
-			return Message.viReadMessage(message).returnMessage(withStatus: status)
-		case .viWriteMessage(var message):
-			let status = viWrite(message.vi, &message.buffer, message.count, &message.returnCount)
-			return Message.viWriteMessage(message).returnMessage(withStatus: status)
-		}
+@objc(MessageProcessor) class MessageProcessor: NSObject, VISAXPCProtocol {
+	func close(
+		vi: ViSession,
+		withReply reply: @escaping (ViStatus) -> Void
+	) {
+		let status = viClose(vi)
+		reply(status)
+	}
+	
+	func open(
+		session: ViSession,
+		resourceName: String,
+		mode: ViAccessMode,
+		timeout: ViUInt32,
+		withReply reply: @escaping (ViStatus, ViSession) -> Void
+	) {
+		var newSession = ViSession()
+		let status = viOpen(session, resourceName, mode, timeout, &newSession)
+		reply(status, newSession)
+	}
+	
+	func openDefaultRM(
+		withReply reply: @escaping (ViStatus, ViSession) -> Void
+	) {
+		var newSession = ViSession()
+		let status = viOpenDefaultRM(&newSession)
+		reply(status, newSession)
+	}
+	
+	func read(
+		vi: ViSession,
+		count: ViUInt32,
+		withReply reply: @escaping (ViStatus, Data, ViUInt32) -> Void
+	) {
+		var returnCount = ViUInt32()
+		var buffer = [ViByte](repeating: 0, count: Int(count))
+		let status = viRead(vi, &buffer, count, &returnCount)
+		reply(status, Data(buffer), returnCount)
+	}
+	
+	func write(
+		vi: ViSession,
+		data: Data,
+		withReply reply: @escaping (ViStatus, ViUInt32) -> Void
+	) {
+		var returnCount = ViUInt32()
+		var buffer = Array<ViByte>(data)
+		let status = viWrite(vi, &buffer, ViUInt32(buffer.count), &returnCount)
+		reply(status, returnCount)
 	}
 }
-

@@ -5,4 +5,5 @@
 //  Created by Connor Barnes on 12/29/20.
 //
 
-MessageListener().listen()
+// This starts a run loop and will not return
+XPCMessageListener().listen()

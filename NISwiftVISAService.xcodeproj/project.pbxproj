@@ -10,7 +10,7 @@
 		5A8EA498259C24B100BE521B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8EA497259C24B100BE521B /* main.swift */; };
 		5A8EA4A1259C24CE00BE521B /* NISwiftVISAServiceMessages in Frameworks */ = {isa = PBXBuildFile; productRef = 5A8EA4A0259C24CE00BE521B /* NISwiftVISAServiceMessages */; };
 		5A8EA4A6259C253A00BE521B /* Processing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8EA4A5259C253A00BE521B /* Processing.swift */; };
-		5A8EA4A7259C253A00BE521B /* MessageListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8EA4A4259C253A00BE521B /* MessageListener.swift */; };
+		5A8EA4A7259C253A00BE521B /* XPCMessageListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8EA4A4259C253A00BE521B /* XPCMessageListener.swift */; };
 		5A8EA4BC259C305700BE521B /* VISA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A8EA4BB259C305700BE521B /* VISA.framework */; };
 		5A8EA4BD259C305700BE521B /* VISA.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5A8EA4BB259C305700BE521B /* VISA.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -41,7 +41,7 @@
 /* Begin PBXFileReference section */
 		5A8EA494259C24B100BE521B /* NISwiftVISAService */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = NISwiftVISAService; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A8EA497259C24B100BE521B /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		5A8EA4A4259C253A00BE521B /* MessageListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListener.swift; sourceTree = "<group>"; };
+		5A8EA4A4259C253A00BE521B /* XPCMessageListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XPCMessageListener.swift; sourceTree = "<group>"; };
 		5A8EA4A5259C253A00BE521B /* Processing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Processing.swift; sourceTree = "<group>"; };
 		5A8EA4AA259C274600BE521B /* NISwiftVISAService-BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NISwiftVISAService-BridgingHeader.h"; sourceTree = "<group>"; };
 		5A8EA4BB259C305700BE521B /* VISA.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VISA.framework; path = ../../../../../../../../Library/Frameworks/VISA.framework; sourceTree = "<group>"; };
@@ -84,7 +84,7 @@
 				5A8EA4BF259C3F3400BE521B /* NISwiftVISAService.entitlements */,
 				5A8EA4AA259C274600BE521B /* NISwiftVISAService-BridgingHeader.h */,
 				5A8EA497259C24B100BE521B /* main.swift */,
-				5A8EA4A4259C253A00BE521B /* MessageListener.swift */,
+				5A8EA4A4259C253A00BE521B /* XPCMessageListener.swift */,
 				5A8EA4A5259C253A00BE521B /* Processing.swift */,
 			);
 			path = NISwiftVISAService;
@@ -163,7 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A8EA4A6259C253A00BE521B /* Processing.swift in Sources */,
-				5A8EA4A7259C253A00BE521B /* MessageListener.swift in Sources */,
+				5A8EA4A7259C253A00BE521B /* XPCMessageListener.swift in Sources */,
 				5A8EA498259C24B100BE521B /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
